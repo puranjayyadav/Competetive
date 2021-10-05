@@ -51,6 +51,22 @@ double eps = 1e-12;
 #define all(x) (x).begin(), (x).end()
 #define sz(x) ((ll)(x).size())
  
+// String all the occurences of the numbers or keys
+int storeOcc( int *a ,int i, int n , int key , int *out ,int j ){
+if(i==n){
+    return j;
+}
+if(a[i] == key){
+    out[j] == i;
+    // increment j to accomodate current occ
+    return storeOcc (a , i+1, n , key,out, j+1);
+}
+// if index does not match or then the array of j remains unchanged
+    return storeOcc( a ,i+1,n,key,out, j);
+
+
+}
+
 
 int lastOcc( int *a, int n , int key ){
     if(n==0){
