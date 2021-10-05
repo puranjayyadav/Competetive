@@ -52,6 +52,25 @@ double eps = 1e-12;
 #define sz(x) ((ll)(x).size())
  
 
+int lastOcc( int *a, int n , int key ){
+    if(n==0){
+        return -1;
+    }
+
+    int i= lastOcc(a+1, n-1,key);
+    if(i == -1){
+         if(a[0]== key){
+        return 0;
+    }
+    else{
+        return -1;
+    }
+    return i+1;
+    }
+    
+}
+
+
 int firstOcc(int *a,int n , int key){
 if(n==0){
     return -1;
@@ -74,6 +93,6 @@ int main()
     cin>>key;
     int n = sizeof(arr)/ sizeof(int);
 
-    cout<<firstOcc(arr,n,key)<<endl;
+    cout<<lastOcc(arr,n,key)<<endl;
     return 0;
 }
